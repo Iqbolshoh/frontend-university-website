@@ -1,172 +1,239 @@
-// ==================== NAVBAR HAMBURGER ====================
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
+'use strict';
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+// ============================================
+// DOM REFERENCES
+// ============================================
+const preloader = document.getElementById('preloader');
+const header = document.getElementById('header');
+const hamburger = document.getElementById('hamburger');
+const navList = document.getElementById('navList');
+const navLinks = document.querySelectorAll('.nav-link');
+const themeToggle = document.getElementById('themeToggle');
+const backToTop = document.getElementById('backToTop');
+const counters = document.querySelectorAll('.counter');
+
+// ============================================
+// PRELOADER
+// ============================================
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        preloader.classList.add('hidden');
+    }, 800);
 });
 
-// Navbarni yopish (link bosilganda)
-document.querySelectorAll('.nav-links a').forEach(link => {
+// ============================================
+// THEME TOGGLE
+// ============================================
+const getPreferredTheme = () => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    const icon = themeToggle.querySelector('i');
+    icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+};
+
+// Initial theme
+setTheme(getPreferredTheme());
+
+themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// ============================================
+// HAMBURGER MENU
+// ============================================
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navList.classList.toggle('open');
+});
+
+// Close menu on link click
+navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        navList.classList.remove('open');
     });
 });
 
-// ==================== THEME TOGGLE ====================
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
+// Close menu on outside click
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.navbar') && navList.classList.contains('open')) {
+        hamburger.classList.remove('active');
+        navList.classList.remove('open');
+    }
+});
 
-// Tema holatini saqlash
-let isDarkMode = true;
+// ============================================
+// NAVBAR SCROLL EFFECT
+// ============================================
+let lastScroll = 0;
 
-function toggleTheme() {
-    isDarkMode = !isDarkMode;
-    body.classList.toggle('light-mode', !isDarkMode);
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
     
-    const icon = themeToggle.querySelector('i');
-    if (isDarkMode) {
-        icon.className = 'fas fa-moon';
+    // Add/remove scrolled class
+    if (currentScroll > 20) {
+        header.classList.add('scrolled');
     } else {
-        icon.className = 'fas fa-sun';
+        header.classList.remove('scrolled');
     }
     
-    // Tema holatini localStorage ga saqlash
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-}
+    // Active nav link
+    const sections = document.querySelectorAll('section[id]');
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (currentScroll >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Back to top button
+    if (currentScroll > 400) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
+    
+    lastScroll = currentScroll;
+});
 
-themeToggle.addEventListener('click', toggleTheme);
+// ============================================
+// BACK TO TOP
+// ============================================
+backToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
 
-// Saqlangan temani yuklash
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-    isDarkMode = false;
-    body.classList.add('light-mode');
-    themeToggle.querySelector('i').className = 'fas fa-sun';
-} else {
-    themeToggle.querySelector('i').className = 'fas fa-moon';
-}
-
-// ==================== COUNTER ANIMATION ====================
-const counters = document.querySelectorAll('.counter');
+// ============================================
+// COUNTER ANIMATION
+// ============================================
 let countersAnimated = false;
 
-function animateCounters() {
+const animateCounters = () => {
     if (countersAnimated) return;
     
     counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-target'));
         const duration = 2000;
-        const step = Math.max(1, Math.floor(target / 60));
-        let current = 0;
+        const startTime = performance.now();
         
-        const updateCounter = () => {
-            current += step;
-            if (current >= target) {
-                counter.textContent = target;
-                countersAnimated = true;
-                return;
+        const updateCounter = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Ease out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(eased * target);
+            
+            counter.textContent = current.toLocaleString();
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target.toLocaleString();
             }
-            counter.textContent = current;
-            requestAnimationFrame(updateCounter);
         };
         
-        updateCounter();
+        requestAnimationFrame(updateCounter);
     });
-}
-
-// ==================== SCROLL ANIMATION (Intersection Observer) ====================
-const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -50px 0px'
+    
+    countersAnimated = true;
 };
 
+// ============================================
+// INTERSECTION OBSERVER
+// ============================================
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Counterlarni ishga tushirish
-            if (entry.target.classList.contains('stats')) {
+            // Trigger counters
+            if (entry.target.id === 'statistics') {
                 animateCounters();
             }
             
-            // Card larga animatsiya qo'shish
-            entry.target.querySelectorAll('.course-card, .testimonial-card, .feature-card').forEach((el, index) => {
+            // Animate cards
+            const cards = entry.target.querySelectorAll('.course-card, .testimonial-card, .feature-card');
+            cards.forEach((card, index) => {
                 setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
                 }, index * 100);
             });
         }
     });
-}, observerOptions);
+}, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+});
 
-// ==================== STATS OBSERVER ====================
-const statsSection = document.querySelector('.stats');
-if (statsSection) {
-    observer.observe(statsSection);
-}
+// Observe sections
+document.querySelectorAll('.courses, .testimonials, .features, #statistics').forEach(section => {
+    observer.observe(section);
+});
 
-// ==================== CARDS ANIMATION ====================
+// Set initial state for cards
 document.querySelectorAll('.course-card, .testimonial-card, .feature-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
 });
 
-// ==================== SMOOTH SCROLL NAVBAR ====================
+// ============================================
+// SMOOTH SCROLL
+// ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        e.preventDefault();
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
+        
+        e.preventDefault();
         const target = document.querySelector(targetId);
-        if (target) {
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
+        if (!target) return;
+        
+        const offset = header.offsetHeight;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
     });
 });
 
-// ==================== ACTIVE NAV LINK ====================
-const sections = document.querySelectorAll('section[id]');
-const navItems = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navItems.forEach(link => {
-        link.style.color = 'var(--text-secondary)';
-        if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = 'var(--accent-primary)';
-        }
-    });
-});
-
-// ==================== NAVBAR SCROLL EFFECT ====================
-const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll > 50) {
-        navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
-    } else {
-        navbar.style.boxShadow = 'none';
+// ============================================
+// KEYBOARD NAVIGATION
+// ============================================
+document.addEventListener('keydown', (e) => {
+    // Escape key closes menu
+    if (e.key === 'Escape' && navList.classList.contains('open')) {
+        hamburger.classList.remove('active');
+        navList.classList.remove('open');
     }
-    lastScroll = currentScroll;
 });
 
-// ==================== CONSOLE LOG ====================
-console.log('🚀 Frontend University saytiga xush kelibsiz!');
-console.log('💡 Dark mode va Light mode mavjud!');
-console.log('📚 Kurslar bilan tanishib chiqing!');
+// ============================================
+// CONSOLE
+// ============================================
+console.log('%c🚀 Frontend University', 'font-size: 24px; font-weight: bold; color: #6366f1;');
+console.log('%c💡 Dark mode va Light mode mavjud!', 'font-size: 14px; color: #94a3b8;');
+console.log('%c📚 Kurslar bilan tanishib chiqing!', 'font-size: 14px; color: #94a3b8;');
+console.log('%c🔗 https://frontend.uz', 'font-size: 14px; color: #6366f1;');
