@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ========== NAVBAR ========== -->
+    <!-- ==================== NAVBAR ==================== -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
@@ -20,9 +19,10 @@
                 Frontend<span>University</span>
             </div>
             <ul class="nav-links" id="navLinks">
+                <li><a href="#home">🏠 Bosh sahifa</a></li>
                 <li><a href="#courses">📚 Kurslar</a></li>
                 <li><a href="#testimonials">⭐ Talabalar</a></li>
-                <li><a href="#about">👨‍🏫 Biz haqimizda</a></li>
+                <li><a href="#features">💎 Afzalliklar</a></li>
                 <li><a href="#contact">📞 Aloqa</a></li>
             </ul>
             <div class="nav-actions">
@@ -35,8 +35,8 @@
         </div>
     </nav>
 
-    <!-- ========== HERO SECTION ========== -->
-    <section class="hero">
+    <!-- ==================== SECTION 1: HERO ==================== -->
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <span class="badge">
@@ -75,35 +75,35 @@
         </div>
     </section>
 
-    <!-- ========== STATS ========== -->
+    <!-- ==================== SECTION 2: STATISTICS ==================== -->
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-icon">🎯</div>
-                    <h3><span>12K+</span></h3>
+                    <h3><span class="counter" data-target="12000">0</span><span>+</span></h3>
                     <p>O'quvchilar</p>
                 </div>
                 <div class="stat-item">
                     <div class="stat-icon">📈</div>
-                    <h3><span>98%</span></h3>
+                    <h3><span class="counter" data-target="98">0</span><span>%</span></h3>
                     <p>Muvaffaqiyat darajasi</p>
                 </div>
                 <div class="stat-item">
                     <div class="stat-icon">👨‍🏫</div>
-                    <h3><span>50+</span></h3>
+                    <h3><span class="counter" data-target="50">0</span><span>+</span></h3>
                     <p>Mutaxassis mentorlar</p>
                 </div>
                 <div class="stat-item">
                     <div class="stat-icon">🚀</div>
-                    <h3><span>200+</span></h3>
+                    <h3><span class="counter" data-target="200">0</span><span>+</span></h3>
                     <p>Amaliy loyihalar</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== COURSES ========== -->
+    <!-- ==================== SECTION 3: COURSES ==================== -->
     <section class="courses" id="courses">
         <div class="container">
             <div class="section-header">
@@ -180,7 +180,7 @@
         </div>
     </section>
 
-    <!-- ========== TESTIMONIALS ========== -->
+    <!-- ==================== SECTION 4: TESTIMONIALS ==================== -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
@@ -229,12 +229,13 @@
         </div>
     </section>
 
-    <!-- ========== WHY US ========== -->
-    <section class="why-us" id="about">
+    <!-- ==================== SECTION 5: FEATURES ==================== -->
+    <section class="features" id="features">
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">💎 Nega biz?</span>
                 <h2 class="section-title">Frontend University ni <br><span class="highlight">tanlashning</span> sabablari</h2>
+                <p class="section-subtitle">🌟 Biz sizga eng yaxshi ta'lim tajribasini taklif qilamiz</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -257,11 +258,21 @@
                     <h3>Doimiy qo'llab-quvvatlash</h3>
                     <p>24/7 chat orqali mentorlardan yordam olish imkoniyati</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">📜</div>
+                    <h3>Sertifikat</h3>
+                    <p>Kursni tugatganingizdan so'ng xalqaro sertifikat olasiz</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">💼</div>
+                    <h3>Ishga joylashish</h3>
+                    <p>Eng yaxshi o'quvchilarni IT kompaniyalarga tavsiya qilamiz</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CTA ========== -->
+    <!-- ==================== SECTION 6: CTA ==================== -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-emoji">🚀</div>
@@ -279,7 +290,7 @@
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- ==================== SECTION 7: FOOTER ==================== -->
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-brand">
@@ -290,6 +301,15 @@
                 <p style="margin-top: 0.5rem; color: #94a3b8; max-width: 300px;">
                     🌐 Zamonaviy web dasturlashni o'rganing va kelajak kasbini egallang.
                 </p>
+                <div class="footer-social" style="margin-top: 1rem;">
+                    <div class="social-icons">
+                        <i class="fab fa-telegram"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-github"></i>
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                </div>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -311,16 +331,6 @@
                     <a href="#"><i class="fas fa-phone"></i> +998 90 123 45 67</a>
                     <a href="#"><i class="fas fa-envelope"></i> info@frontend.uz</a>
                     <a href="#"><i class="fas fa-map-marker-alt"></i> Toshkent, O'zbekiston</a>
-                </div>
-            </div>
-            <div class="footer-social">
-                <h4>🌐 Biz ijtimoiy tarmoqlarda</h4>
-                <div class="social-icons">
-                    <i class="fab fa-telegram"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-youtube"></i>
-                    <i class="fab fa-github"></i>
-                    <i class="fab fa-linkedin"></i>
                 </div>
             </div>
         </div>
