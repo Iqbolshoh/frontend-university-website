@@ -7,7 +7,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,16 +15,19 @@
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Frontend<span>University</span></div>
+            <div class="logo">
+                <span class="logo-emoji">🎓</span>
+                Frontend<span>University</span>
+            </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#courses">Kurslar</a></li>
-                <li><a href="#testimonials">Talabalar</a></li>
-                <li><a href="#about">Biz haqimizda</a></li>
-                <li><a href="#contact">Aloqa</a></li>
+                <li><a href="#courses">📚 Kurslar</a></li>
+                <li><a href="#testimonials">⭐ Talabalar</a></li>
+                <li><a href="#about">👨‍🏫 Biz haqimizda</a></li>
+                <li><a href="#contact">📞 Aloqa</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="btn-outline">Kirish</button>
-                <button class="btn-primary">Ro'yxatdan o'tish</button>
+                <button class="btn-outline">🔑 Kirish</button>
+                <button class="btn-primary">🚀 Ro'yxatdan o'tish</button>
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -36,16 +39,38 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="badge"><i class="fas fa-rocket"></i> 2026-yilning eng yaxshi kurslari</span>
-                <h1>Frontend <br><i>ustasiga</i> aylaning</h1>
-                <p>HTML, CSS, JavaScript va zamonaviy frameworklar bilan real loyihalar yaratishni o'rganing. Mutaxassislardan saboq oling.</p>
+                <span class="badge">
+                    <i class="fas fa-rocket"></i> 2026-yilning eng yaxshi kurslari
+                </span>
+                <h1>
+                    Frontend <br>
+                    <span class="highlight">ustasiga</span> aylaning
+                    <span class="hero-emoji">🚀</span>
+                </h1>
+                <p>
+                    🌟 HTML, CSS, JavaScript va zamonaviy frameworklar bilan 
+                    real loyihalar yaratishni o'rganing. Mutaxassislardan saboq oling.
+                </p>
                 <div class="hero-buttons">
-                    <button class="btn-primary">Kurslarni ko'rish</button>
-                    <button class="btn-outline">Bepul dars <i class="fas fa-play-circle"></i></button>
+                    <button class="btn-primary">📖 Kurslarni ko'rish</button>
+                    <button class="btn-outline">▶️ Bepul dars</button>
+                </div>
+                <div class="hero-features">
+                    <span>✅ 12K+ o'quvchilar</span>
+                    <span>⭐ 4.9/5 reyting</span>
+                    <span>🏆 50+ mentorlar</span>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&crop=center" alt="Frontend coding">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&crop=center" alt="Frontend coding">
+                    <div class="floating-badge badge-top">
+                        <span>💻</span> 200+ loyihalar
+                    </div>
+                    <div class="floating-badge badge-bottom">
+                        <span>👨‍🎓</span> 98% muvaffaqiyat
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -55,18 +80,22 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
+                    <div class="stat-icon">🎯</div>
                     <h3><span>12K+</span></h3>
                     <p>O'quvchilar</p>
                 </div>
                 <div class="stat-item">
+                    <div class="stat-icon">📈</div>
                     <h3><span>98%</span></h3>
                     <p>Muvaffaqiyat darajasi</p>
                 </div>
                 <div class="stat-item">
+                    <div class="stat-icon">👨‍🏫</div>
                     <h3><span>50+</span></h3>
                     <p>Mutaxassis mentorlar</p>
                 </div>
                 <div class="stat-item">
+                    <div class="stat-icon">🚀</div>
                     <h3><span>200+</span></h3>
                     <p>Amaliy loyihalar</p>
                 </div>
@@ -77,45 +106,76 @@
     <!-- ========== COURSES ========== -->
     <section class="courses" id="courses">
         <div class="container">
-            <h2 class="section-title">Bizning kurslar</h2>
-            <p class="section-subtitle">Zamonaviy web dasturlashni eng yaxshi mentorlardan o'rganing</p>
+            <div class="section-header">
+                <span class="section-badge">📖 Bizning kurslar</span>
+                <h2 class="section-title">Zamonaviy web dasturlashni <br><span class="highlight">eng yaxshi</span> mentorlardan o'rganing</h2>
+                <p class="section-subtitle">💡 Har bir kurs amaliy loyihalar va real tajribaga asoslangan</p>
+            </div>
             <div class="course-grid">
                 <div class="course-card">
+                    <div class="course-emoji">🌐</div>
                     <div class="icon"><i class="fab fa-html5"></i></div>
                     <h3>HTML & CSS</h3>
                     <p>Semantik HTML, flexbox, grid va responsive dizayn asoslari.</p>
+                    <div class="course-tags">
+                        <span class="tag">#boshlang'ich</span>
+                        <span class="tag">#dizayn</span>
+                    </div>
                     <div class="meta">
                         <span><i class="far fa-clock"></i> 24 soat</span>
                         <span><i class="fas fa-users"></i> 15 o'quvchi</span>
+                        <span class="price">🆓 Bepul</span>
                     </div>
                 </div>
-                <div class="course-card">
+                <div class="course-card featured">
+                    <div class="course-emoji">⚡</div>
+                    <div class="featured-badge">🔥 Ommabop</div>
                     <div class="icon"><i class="fab fa-js"></i></div>
                     <h3>JavaScript</h3>
                     <p>ES6+, DOM manipulyatsiya, async/await va API'lar bilan ishlash.</p>
+                    <div class="course-tags">
+                        <span class="tag">#o'rta</span>
+                        <span class="tag">#interaktiv</span>
+                    </div>
                     <div class="meta">
                         <span><i class="far fa-clock"></i> 32 soat</span>
                         <span><i class="fas fa-users"></i> 20 o'quvchi</span>
+                        <span class="price">💰 299,000 so'm</span>
                     </div>
                 </div>
                 <div class="course-card">
+                    <div class="course-emoji">⚛️</div>
                     <div class="icon"><i class="fab fa-react"></i></div>
                     <h3>React.js</h3>
                     <p>Komponentlar, state management, router va real loyihalar.</p>
+                    <div class="course-tags">
+                        <span class="tag">#yuqori</span>
+                        <span class="tag">#framework</span>
+                    </div>
                     <div class="meta">
                         <span><i class="far fa-clock"></i> 40 soat</span>
                         <span><i class="fas fa-users"></i> 18 o'quvchi</span>
+                        <span class="price">💰 499,000 so'm</span>
                     </div>
                 </div>
                 <div class="course-card">
+                    <div class="course-emoji">🌟</div>
                     <div class="icon"><i class="fas fa-layer-group"></i></div>
                     <h3>Full Stack</h3>
                     <p>Frontend + Backend (Node.js, Express, MongoDB) to'plami.</p>
+                    <div class="course-tags">
+                        <span class="tag">#professional</span>
+                        <span class="tag">#to'liq</span>
+                    </div>
                     <div class="meta">
                         <span><i class="far fa-clock"></i> 56 soat</span>
                         <span><i class="fas fa-users"></i> 12 o'quvchi</span>
+                        <span class="price">💰 699,000 so'm</span>
                     </div>
                 </div>
+            </div>
+            <div class="courses-cta">
+                <button class="btn-primary btn-large">📚 Barcha kurslarni ko'rish</button>
             </div>
         </div>
     </section>
@@ -123,39 +183,45 @@
     <!-- ========== TESTIMONIALS ========== -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title">O'quvchilarimiz fikrlari</h2>
-            <p class="section-subtitle">Ularning muvaffaqiyati bizning eng katta sharafimiz</p>
+            <div class="section-header">
+                <span class="section-badge">⭐ Talabalar fikrlari</span>
+                <h2 class="section-title">Ularning muvaffaqiyati bizning <br><span class="highlight">eng katta</span> sharafimiz</h2>
+                <p class="section-subtitle">💬 500+ o'quvchilarimizdan ijobiy fikrlar</p>
+            </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="testimonial-emoji">🌟</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
                     <blockquote>"Kurslar juda tushunarli va amaliy. Hozir mustaqil loyihalar yaratyapman!"</blockquote>
                     <div class="user">
                         <div class="avatar">A</div>
                         <div class="user-info">
                             <h4>Alisher Karimov</h4>
-                            <p>Frontend Developer</p>
+                            <p>💼 Frontend Developer</p>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="testimonial-card featured">
+                    <div class="testimonial-emoji">🎯</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
                     <blockquote>"Mentorlar juda yaxshi, har bir savolga javob olaman. Tavsiya qilaman!"</blockquote>
                     <div class="user">
                         <div class="avatar">M</div>
                         <div class="user-info">
                             <h4>Madina Rustamova</h4>
-                            <p>UI/UX Dizayner</p>
+                            <p>🎨 UI/UX Dizayner</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="testimonial-emoji">💪</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
                     <blockquote>"6 oy ichida dasturchi bo'ldim. Universitetga rahmat!"</blockquote>
                     <div class="user">
                         <div class="avatar">J</div>
                         <div class="user-info">
                             <h4>Jasur Raximov</h4>
-                            <p>React Developer</p>
+                            <p>⚛️ React Developer</p>
                         </div>
                     </div>
                 </div>
@@ -163,37 +229,108 @@
         </div>
     </section>
 
-    <!-- ========== CTA + FOOTER ========== -->
-    <section class="cta-section" id="about">
+    <!-- ========== WHY US ========== -->
+    <section class="why-us" id="about">
         <div class="container">
-            <h2>Kelajagingizni bugundan boshlang</h2>
-            <p>Frontend University sizga zamonaviy kasbni egallashda yordam beradi. Birinchi dars bepul!</p>
-            <button class="btn-primary">Bepul sinab ko'rish</button>
+            <div class="section-header">
+                <span class="section-badge">💎 Nega biz?</span>
+                <h2 class="section-title">Frontend University ni <br><span class="highlight">tanlashning</span> sabablari</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-emoji">👨‍🏫</div>
+                    <h3>Professional mentorlar</h3>
+                    <p>10+ yillik tajribaga ega mutaxassislar sizga yo'l ko'rsatadi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">📱</div>
+                    <h3>Zamonaviy dasturlar</h3>
+                    <p>Eng so'nggi texnologiyalar va frameworklar asosida o'qitish</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">🎯</div>
+                    <h3>Amaliy loyihalar</h3>
+                    <p>Har bir kursda real loyihalar yaratib, portfolionizni boyiting</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">🤝</div>
+                    <h3>Doimiy qo'llab-quvvatlash</h3>
+                    <p>24/7 chat orqali mentorlardan yordam olish imkoniyati</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer" id="contact">
+    <!-- ========== CTA ========== -->
+    <section class="cta-section">
         <div class="container">
-            <div class="logo" style="font-size: 1.4rem;">Frontend<span>University</span></div>
-            <div class="footer-links">
-                <a href="#">Kurslar</a>
-                <a href="#">Mentorlar</a>
-                <a href="#">Blog</a>
-                <a href="#">Aloqa</a>
+            <div class="cta-emoji">🚀</div>
+            <h2>Kelajagingizni <span class="highlight">bugundan</span> boshlang</h2>
+            <p>🌟 Frontend University sizga zamonaviy kasbni egallashda yordam beradi. Birinchi dars bepul!</p>
+            <div class="cta-buttons">
+                <button class="btn-primary btn-large">✨ Bepul sinab ko'rish</button>
+                <button class="btn-outline btn-large btn-white">📞 Bog'lanish</button>
             </div>
-            <div class="social">
-                <i class="fab fa-telegram"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-github"></i>
+            <div class="cta-features">
+                <span>✅ 7 kunlik bepul sinov</span>
+                <span>💳 Xavfsiz to'lov</span>
+                <span>📜 Sertifikat</span>
             </div>
         </div>
-        <div class="container" style="margin-top: 1.5rem; border-top: 1px solid #1e2f44; padding-top: 1.5rem; justify-content: center;">
-            <p style="font-size: 0.9rem;">&copy; 2026 Frontend University. Barcha huquqlar himoyalangan.</p>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="logo" style="font-size: 1.6rem;">
+                    <span class="logo-emoji">🎓</span>
+                    Frontend<span>University</span>
+                </div>
+                <p style="margin-top: 0.5rem; color: #94a3b8; max-width: 300px;">
+                    🌐 Zamonaviy web dasturlashni o'rganing va kelajak kasbini egallang.
+                </p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>📚 Kurslar</h4>
+                    <a href="#">HTML & CSS</a>
+                    <a href="#">JavaScript</a>
+                    <a href="#">React.js</a>
+                    <a href="#">Full Stack</a>
+                </div>
+                <div class="footer-column">
+                    <h4>👨‍🏫 Kompaniya</h4>
+                    <a href="#">Biz haqimizda</a>
+                    <a href="#">Mentorlar</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Karyera</a>
+                </div>
+                <div class="footer-column">
+                    <h4>📞 Aloqa</h4>
+                    <a href="#"><i class="fas fa-phone"></i> +998 90 123 45 67</a>
+                    <a href="#"><i class="fas fa-envelope"></i> info@frontend.uz</a>
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> Toshkent, O'zbekiston</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <h4>🌐 Biz ijtimoiy tarmoqlarda</h4>
+                <div class="social-icons">
+                    <i class="fab fa-telegram"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 2rem; border-top: 1px solid #1e2f44; padding-top: 1.5rem; justify-content: center;">
+            <p style="font-size: 0.9rem; text-align: center;">
+                © 2026 Frontend University. Barcha huquqlar himoyalangan. ❤️
+            </p>
         </div>
     </footer>
 
-    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>
