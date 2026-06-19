@@ -306,6 +306,34 @@ body {
     border-bottom: 1px solid #e9edf2;
 }
 
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e4f8a;
+    padding: 0.3rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    color: #475569;
+    font-size: 1.1rem;
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -337,35 +365,6 @@ body {
     color: #475569;
     font-weight: 500;
     font-size: 1rem;
-}
-
-/* ==================== SECTION HEADER ==================== */
-.section-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-}
-
-.section-badge {
-    display: inline-block;
-    background: #dbeafe;
-    color: #1e4f8a;
-    padding: 0.3rem 1.2rem;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-}
-
-.section-subtitle {
-    color: #475569;
-    font-size: 1.1rem;
 }
 
 /* ==================== SECTION 3: COURSES ==================== */
@@ -784,9 +783,9 @@ body {
     
     .hero-features {
         justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .hero-content h1 {

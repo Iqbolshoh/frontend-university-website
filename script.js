@@ -152,13 +152,13 @@ document.querySelectorAll('.btn-primary, .btn-outline').forEach(button => {
         const text = this.textContent.trim();
         
         const messages = {
-            'Kurslarni ko\'rish': '📚 Kurslar sahifasiga o\'tyapmiz!',
+            "Kurslarni ko'rish": '📚 Kurslar sahifasiga o\'tyapmiz!',
             'Bepul dars': '🎬 Bepul dars video\'si ochilmoqda!',
-            'Ro\'yxatdan o\'tish': '📝 Ro\'yxatdan o\'tish formasi ochilmoqda!',
+            "Ro'yxatdan o'tish": '📝 Ro\'yxatdan o\'tish formasi ochilmoqda!',
             'Kirish': '🔑 Kirish sahifasi tayyorlanmoqda.',
-            'Barcha kurslarni ko\'rish': '📚 Barcha kurslar ro\'yxati ochilmoqda!',
+            "Barcha kurslarni ko'rish": '📚 Barcha kurslar ro\'yxati ochilmoqda!',
             'Bepul sinab ko\'rish': '🎉 7 kunlik bepul sinovga yozildingiz!',
-            'Bog\'lanish': '📞 Tez orada siz bilan bog\'lanamiz!'
+            "Bog'lanish": '📞 Tez orada siz bilan bog\'lanamiz!'
         };
         
         for (const [key, value] of Object.entries(messages)) {
